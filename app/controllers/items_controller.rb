@@ -1,14 +1,22 @@
 class ItemsController < ApplicationController
   def create
+    @user = current_user
+    @items = @user.items
     @item = Item.new(item_params)
-    @item.user_id = current_user.id
+    @item.user = current_user
+    @new_item = Item.new
 
     if @item.save
       flash[:notice] = "Item was saved."
-      redirect_to current_user
+
     else
       flash[:error] = "There was a problem saving the item. Please try again."
-      redirect_to current_user
+
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

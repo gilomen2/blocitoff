@@ -1,0 +1,11 @@
+<% if @item.valid? %>
+  var $listItem = $("<%= escape_javascript(render(@item)) %>");
+  $listItem.hide();
+  $('.todos').append($listItem)
+  checkify();
+  $listItem.fadeIn(300);
+  $('.new-item').html("<%= escape_javascript(render partial: '/items/form', locals: { user: @user, item: @new_item }) %>");
+<% else %>
+  $('.new-item').html("<%= escape_javascript(render partial: '/items/form', locals: { user: @user, item: @item }) %>");
+<% end %>
+

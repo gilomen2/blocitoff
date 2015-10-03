@@ -17,7 +17,11 @@
 //= require bootstrap-sprockets
 
 $(function () {
-    $('.list-group.checked-list-box .list-group-item').each(function () {
+    checkify();
+});
+
+function checkify() {
+        $('.list-group.checked-list-box .list-group-item.unstyled').each(function () {
 
         // Settings
         var $widget = $(this),
@@ -82,6 +86,7 @@ $(function () {
             }
         }
         init();
+        $widget.removeClass('unstyled')
     });
 
     $('#get-checked-data').on('click', function(event) {
@@ -93,4 +98,4 @@ $(function () {
         });
         $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
     });
-});
+}

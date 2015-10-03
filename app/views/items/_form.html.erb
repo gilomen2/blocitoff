@@ -1,9 +1,9 @@
-<%= form_for [user, Item.new] do |f| %>
+<%= form_for [user, Item.new], remote: true do |f| %>
   <div class="form-group">
     <div class="input-group">
       <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'New todo', required: true  %>
       <span class="input-group-btn">
-        <%= f.submit "Submit", class: 'btn btn-default'%>
+        <%= f.submit "Submit", class: 'btn btn-default', id: 'add-todo'%>
       </span>
     </div>
   </div>
