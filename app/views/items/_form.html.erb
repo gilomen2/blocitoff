@@ -1,0 +1,10 @@
+<%= form_for [user, Item.new] do |f| %>
+  <div class="form-group">
+    <div class="input-group">
+      <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'New todo', required: true  %>
+      <span class="input-group-btn">
+        <%= f.submit "Submit", class: 'btn btn-default'%>
+      </span>
+    </div>
+  </div>
+<% end %>
