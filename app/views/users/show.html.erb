@@ -1,2 +1,14 @@
-<h1><%= @user.name %>'s todo list</h1>
+<div class="col-lg-12">
+  <h1><%= @user.name %>'s todo list</h1>
+  <div class="new-item">
+    <%= render partial: "/items/form", locals: { user: @user, item: @item } %>
+  </div>
+  <% if @user.items.count > 0 %>
+      <div class="well">
+        <ul class="todos list-group checked-list-box no-margin">
+          <%= render partial: "/items/item", collection: @user.items %>
+        </ul>
+      </div>
+  <% end %>
+</div>
 
