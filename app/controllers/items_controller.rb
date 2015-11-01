@@ -6,10 +6,7 @@ class ItemsController < ApplicationController
     @item.user = current_user
     @new_item = Item.new
 
-    if @item.save
-      flash[:notice] = "Item was saved."
-
-    else
+    unless @item.save
       flash[:error] = "There was a problem saving the item. Please try again."
 
     end
@@ -18,6 +15,21 @@ class ItemsController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def destroy
+    @user = current_user
+    @item = Item.find(params[:id])
+
+    unless @item.destroy
+      flash[:error] = "There was a problem deleting the item. Please try again."
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   private

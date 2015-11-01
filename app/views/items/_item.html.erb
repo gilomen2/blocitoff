@@ -1,2 +1,4 @@
-<li class="list-group-item unstyled"><%= item.name %></li>
+<%= link_to [@user, item], method: :delete, remote: true do %>
+  <li class="list-group-item unstyled" id="item-<%= item.id %>"><%= item.name %></li>
+<% end %>
 

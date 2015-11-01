@@ -1,7 +1,8 @@
 <% if @item.valid? %>
-  var $listItem = $("<%= escape_javascript(render(@item)) %>");
+  var $toDo = $("<%= escape_javascript(render(@item)) %>");
+  var $listItem = $toDo.find('li.list-group-item')
   $listItem.hide();
-  $('.todos').append($listItem)
+  $('.todos').append($toDo)
   checkify();
   $listItem.fadeIn(300);
   $('.new-item').html("<%= escape_javascript(render partial: '/items/form', locals: { user: @user, item: @new_item }) %>");
