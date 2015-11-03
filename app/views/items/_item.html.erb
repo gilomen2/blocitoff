@@ -1,4 +1,3 @@
 <%= link_to [@user, item], method: :delete, remote: true do %>
-  <li class="list-group-item unstyled" id="item-<%= item.id %>"><%= item.name %></li>
+  <li class="list-group-item unstyled" id="item-<%= item.id %>"><%= item.name %><span class="badge"><%= pluralize(item.days_left, 'day') %> left</span></li>
 <% end %>
-
