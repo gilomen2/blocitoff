@@ -1,0 +1,1 @@
+* * * * * /bin/bash -l -c 'cd /Users/beth/Projects/bloc/blocitoff && RAILS_ENV=production bundle exec rake todo:delete_items --silent'
